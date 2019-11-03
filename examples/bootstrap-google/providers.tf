@@ -8,6 +8,6 @@ provider "google" {
 provider "google-beta" {
   project     = "${var.project}"
   region      = "${var.region}"
-  credentials = ""${var.creds}"
+  credentials = "${var.creds}"
   #credentials = "${file("${var.creds}")}"
 }

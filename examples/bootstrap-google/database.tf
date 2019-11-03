@@ -9,3 +9,10 @@ resource "google_sql_database_instance" "tfe-psql-db" {
     tier = "db-f1-micro"
   }
 }
+
+resource "google_sql_user" "users" {
+  name     = "${var.dbuser}"
+  instance = "${google_sql_database_instance.tfe-psql-db.name}"
+  host     = "me.com"
+  password = "${var.dbpassword}"
+}

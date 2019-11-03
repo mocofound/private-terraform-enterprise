@@ -1,5 +1,5 @@
 resource "google_storage_bucket" "tfe-bucket" {
-  name     = "image-store-bucket"
+  name     = "tfe-storage-bucket"
   location = "us"
 
   #website {

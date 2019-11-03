@@ -11,8 +11,8 @@ resource "google_sql_database_instance" "tfe-psql-db" {
 }
 
 resource "google_sql_user" "tfe-psql-user" {
-  name     = "${var.dbuser}"
+  name     = "${var.postgresql_user}"
   instance = "${google_sql_database_instance.tfe-psql-db.name}"
   host     = "me.com"
-  password = "${var.dbpassword}"
+  password = "${var.postgresql_password}"
 }

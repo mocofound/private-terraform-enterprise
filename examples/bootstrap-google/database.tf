@@ -10,7 +10,7 @@ resource "google_sql_database_instance" "tfe-psql-db" {
   }
 }
 
-resource "google_sql_user" "users" {
+resource "google_sql_user" "tfe-psql-user" {
   name     = "${var.dbuser}"
   instance = "${google_sql_database_instance.tfe-psql-db.name}"
   host     = "me.com"

@@ -25,3 +25,15 @@ output "DNS_Entry" {
 output "Certificate" {
   value = "${module.dns-cert.cert}"
 }
+
+output "psql_dbuser" {
+  value = "${google_sql_user.tfe-psql-user.name}"
+}
+
+output "storage_bucket" {
+  value = "${google_storage_bucket.tfe-bucket.name}"
+}
+
+output "psql_db" {
+  value = "${google_sql_database_instance.tfe-psql-db.name}"
+}

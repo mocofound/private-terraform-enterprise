@@ -39,5 +39,5 @@ output "psql_db" {
 }
 
 output "psql_db_url" {
-  value = "${google_sql_database_instance.tfe-psql-db.url}"
+  value = "${google_sql_database_instance.tfe-psql-db}"
 }

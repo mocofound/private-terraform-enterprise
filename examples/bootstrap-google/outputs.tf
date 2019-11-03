@@ -41,3 +41,7 @@ output "psql_db" {
 output "psql_db_url" {
   value = "${google_sql_database_instance.tfe-psql-db.ip_address}"
 }
+
+output "ssl_policy" {
+  value = "${google_compute_ssl_policy.tfe-ssl-policy.name}"
+}

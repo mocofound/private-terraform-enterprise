@@ -53,3 +53,14 @@ variable "subnet_range" {
   description = "CIDR range for subnet"
   default     = "10.1.0.0/16"
 }
+
+variable "dbuser" {
+  type        = "string"
+  description = "Username for Postgres Database"
+  default     = "mysqluser"
+}
+
+variable "dbpassword" {
+  type        = "string"
+  description = "Password for Postgres Database"
+}

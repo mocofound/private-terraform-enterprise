@@ -54,13 +54,13 @@ variable "subnet_range" {
   default     = "10.1.0.0/16"
 }
 
-variable "dbuser" {
+variable "postgresql_user" {
   type        = "string"
   description = "Username for Postgres Database"
-  default     = "mysqluser"
+  default     = "tfepsqluser"
 }
 
-variable "dbpassword" {
+variable "postgresql_password" {
   type        = "string"
   description = "Password for Postgres Database"
 }

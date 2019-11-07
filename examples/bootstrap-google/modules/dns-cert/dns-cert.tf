@@ -1,7 +1,7 @@
 resource "google_dns_managed_zone" "dnszone" {
-  name = "$var.dnszone"
+  name = "${var.dnszone}"
   dns_name = "${var.domain}."
-  description = "Example private DNS zone"
+  description = "Terraform Enterprise private DNS zone"
 
   visibility = "private"
 
@@ -9,6 +9,7 @@ resource "google_dns_managed_zone" "dnszone" {
     networks {
       network_url = "${var.network_url}"
     }
+  {
 }
 
 resource "google_compute_global_address" "frontend_ip" {

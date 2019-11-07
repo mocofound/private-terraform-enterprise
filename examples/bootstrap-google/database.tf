@@ -16,7 +16,7 @@ resource "google_sql_database_instance" "tfe-psql-db" {
     tier = "db-f1-micro"
     ip_configuration {
       ipv4_enabled = false
-      private_network = "${module.firewall.google_compute_network}"
+      private_network = "${module.firewall.google_compute_network_url}"
     }
   }
 }

@@ -38,6 +38,6 @@ output "psql_db" {
   value = "${google_sql_database_instance.tfe-psql-db.name}"
 }
 
-output "psql_db_url" {
-  value = "${google_sql_database_instance.tfe-psql-db}"
+output "psql_db_ip_address" {
+  value = "${google_sql_database_instance.tfe-psql-db.first_ip_address}"
 }

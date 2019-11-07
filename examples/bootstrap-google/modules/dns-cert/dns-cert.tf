@@ -4,7 +4,7 @@
 
 resource "google_dns_managed_zone" "dnszone" {
   name = "private-zone"
-  dns_name = "${var.domain}."
+  dns_name = "${var.domain}"
   description = "Example private DNS zone"
   labels = {
     description = "Terraform Enterprise"

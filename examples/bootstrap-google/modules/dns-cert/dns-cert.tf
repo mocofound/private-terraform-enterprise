@@ -1,5 +1,22 @@
-data "google_dns_managed_zone" "dnszone" {
-  name     = "${var.dnszone}"
+#data "google_dns_managed_zone" "dnszone" {
+#  name     = "${var.dnszone}"
+#}
+
+resource "google_dns_managed_zone" "dnszone" {
+  name = "private-zone"
+  dns_name = "${var.domain}."
+  description = "Example private DNS zone"
+  labels = {
+    description = "Terraform Enterprise"
+  }
+
+  visibility = "private"
+
+  private_visibility_config {
+    networks {
+      network_url =  "${module.firewall.google_compute_network}"
+    }
+  }
 }
 
 resource "google_compute_global_address" "frontend_ip" {
@@ -7,7 +24,7 @@ resource "google_compute_global_address" "frontend_ip" {
 }
 
 resource "google_dns_record_set" "frontenddns" {
-  name = "${var.frontenddns}.${data.google_dns_managed_zone.dnszone.dns_name}"
+  name = "${var.frontenddns}.${dgoogle_dns_managed_zone.dnszone.dns_name}"
   type = "A"
   ttl  = 300
 

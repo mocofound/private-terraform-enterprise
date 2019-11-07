@@ -8,7 +8,7 @@ resource "google_sql_database_instance" "tfe-psql-db" {
   database_version = "POSTGRES_9_6"
   region = "us-central1"
   depends_on = [
-    "module.firewall.google_service_networking_connection"
+    "google_service_networking_connection.private_vpc_connection"
   ]
   settings {
     # Second-generation instance tiers are based on the machine

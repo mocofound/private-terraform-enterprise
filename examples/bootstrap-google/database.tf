@@ -1,10 +1,14 @@
+resource "random_id" "db_name_suffix" {
+  byte_length = 4
+}
+
 resource "google_sql_database_instance" "tfe-psql-db" {
   provider = "google-beta"
   name = "tfe-psql-db-instance-${random_id.db_name_suffix.hex}"
   database_version = "POSTGRES_9_6"
   region = "us-central1"
   depends_on = [
-    "module.firewall.google_service_networking_connection.ptfe_vpc"
+    "module.firewall.google_service_networking_connection"
   ]
   settings {
     # Second-generation instance tiers are based on the machine

@@ -9,7 +9,6 @@ resource "google_dns_managed_zone" "dnszone" {
     networks {
       network_url = "${var.network_url}"
     }
-  }
 }
 
 resource "google_compute_global_address" "frontend_ip" {

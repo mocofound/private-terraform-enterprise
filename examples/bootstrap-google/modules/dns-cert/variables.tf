@@ -17,3 +17,8 @@ variable "frontenddns" {
   type        = "string"
   description = "DNS name for load balancer"
 }
+
+variable "network_url" {
+  type        = "string"
+  description = "url of google cloud network"
+}

@@ -3,7 +3,7 @@ resource "google_dns_managed_zone" "dnszone" {
   dns_name = "${var.domain}."
   description = "Example private DNS zone"
   labels = {
-    description = "Terraform Enterprise"
+    "description" = "Terraform Enterprise"
   }
 
   visibility = "private"

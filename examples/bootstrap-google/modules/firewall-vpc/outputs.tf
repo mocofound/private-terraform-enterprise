@@ -2,6 +2,10 @@ output "vpc" {
   value = "${google_compute_network.ptfe_vpc.name}"
 }
 
+output "google_compute_network" {
+  value = "${google_compute_network.ptfe_vpc.name}"
+}
+
 output "ptfe_subnet" {
   value = "${google_compute_subnetwork.ptfe_subnet.name}"
 }

@@ -53,14 +53,16 @@ resource "google_compute_global_address" "private_ip_address" {
   network       = "${module.firewall.google_compute_network}"
 }
 
-resource "google_project_services" "project" {
-  project = "your-project-id"
-  services   = ["servicenetworking.googleapis.com", "cloudresourcemanager.googleapis.com"]
+
+resource "google_project_service" "service_networking_api" {
+  project = ${var.project}
+  service = "servicenetworking.googleapis.com"
+  disable_dependent_services = true
+  disable_on_destroy = true
 }
 
-resource "google_project_service" "project" {
-  project = "your-project-id"
-  service = "servicenetworking.googleapis.com"
+resource "google_project_service" "cloud_resource_manager_api" {
+  project = ${var.project}
   service= "cloudresourcemanager.googleapis.com"
   disable_dependent_services = true
   disable_on_destroy = true

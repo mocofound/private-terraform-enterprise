@@ -31,7 +31,7 @@ resource "google_sql_user" "tfe-psql-user" {
 resource "google_service_networking_connection" "private_vpc_connection" {
   provider = "google-beta"
 
-  network       = "${module.firewall.google_compute_network}"
+  network       = "${module.firewall.google_compute_network_url}"
   service       = "servicenetworking.googleapis.com"
   #reserved_peering_ranges = []
   #reserved_peering_ranges = ["google-managed-services-${module.firewall.google_compute_network}"]

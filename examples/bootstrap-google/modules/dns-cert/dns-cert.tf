@@ -14,7 +14,7 @@ resource "google_dns_managed_zone" "dnszone" {
 
   private_visibility_config {
     networks {
-      network_url = "${module.firewall.google_compute_network_url}"
+      network_url = "${var.network_url}"
     }
   }
 }

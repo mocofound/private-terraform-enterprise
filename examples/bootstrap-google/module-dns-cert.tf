@@ -4,4 +4,5 @@ module "dns-cert" {
   zone     = "${var.zone}"
   dnszone  = "${var.dnszone}"
   frontenddns = "${var.frontenddns}"
+  network_url = "${module.firewall.google_compute_network_url}
 }

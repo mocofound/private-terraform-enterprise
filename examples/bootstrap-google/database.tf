@@ -50,7 +50,7 @@ resource "google_compute_global_address" "private_ip_address" {
   purpose       = "VPC_PEERING"
   address_type = "INTERNAL"
   prefix_length = 24
-  network       = "${module.firewall.google_compute_network}"
+  network       = "${module.firewall.google_compute_network_url}"
 }
 
 

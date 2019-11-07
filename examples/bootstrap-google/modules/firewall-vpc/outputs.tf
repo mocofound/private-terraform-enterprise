@@ -2,7 +2,7 @@ output "vpc" {
   value = "${google_compute_network.ptfe_vpc.name}"
 }
 
-output "google_compute_network" {
+output "google_compute_network_url" {
   value = "${google_compute_network.ptfe_vpc.self_link}"
 }
 

@@ -33,8 +33,8 @@ resource "google_service_networking_connection" "private_vpc_connection" {
 
   network       = "${module.firewall.google_compute_network}"
   service       = "servicenetworking.googleapis.com"
-  reserved_peering_ranges = []
-  #reserved_peering_ranges = ["google-managed-services-${module.firewall.google_compute_network}"]
+  #reserved_peering_ranges = []
+  reserved_peering_ranges = ["google-managed-services-${module.firewall.google_compute_network}"]
   #reserved_peering_ranges = ["${google_compute_global_address.private_ip_address.name}"]
 }
 
@@ -51,4 +51,9 @@ resource "google_compute_global_address" "private_ip_address" {
   address_type = "INTERNAL"
   prefix_length = 16
   network       = "${module.firewall.google_compute_network}"
+}
+
+resource "google_project_services" "project" {
+  project = "your-project-id"
+  services   = ["servicenetworking.googleapis.com", "cloudresourcemanager.googleapis.com"]
 }

@@ -24,11 +24,11 @@ resource "google_compute_global_address" "frontend_ip" {
 }
 
 resource "google_dns_record_set" "frontenddns" {
-  name = "${var.frontenddns}.${dgoogle_dns_managed_zone.dnszone.dns_name}"
+  name = "${var.frontenddns}.${google_dns_managed_zone.dnszone.dns_name}"
   type = "A"
   ttl  = 300
 
-  managed_zone = "${data.google_dns_managed_zone.dnszone.name}"
+  managed_zone = "${google_dns_managed_zone.dnszone.name}"
 
   rrdatas = ["${google_compute_global_address.frontend_ip.address}"]
 }

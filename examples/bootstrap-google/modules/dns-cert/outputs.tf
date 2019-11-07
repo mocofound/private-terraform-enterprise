@@ -7,5 +7,5 @@ output "cert" {
 }
 
 output "dns_entry" {
-  value = "${var.frontenddns}.${data.google_dns_managed_zone.dnszone.dns_name}"
+  value = "${var.frontenddns}.${google_dns_managed_zone.dnszone.dns_name}"
 }

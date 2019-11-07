@@ -39,7 +39,7 @@ resource "google_compute_managed_ssl_certificate" "frontendcert" {
   name = "${var.frontenddns}"
 
   managed {
-    domains = ["${var.frontenddns}.${data.google_dns_managed_zone.dnszone.dns_name}"]
+    domains = ["${var.frontenddns}.${google_dns_managed_zone.dnszone.dns_name}"]
   }
 
   timeouts {

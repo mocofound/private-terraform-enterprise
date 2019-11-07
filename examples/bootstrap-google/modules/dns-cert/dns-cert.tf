@@ -1,9 +1,5 @@
-#data "google_dns_managed_zone" "dnszone" {
-#  name     = "${var.dnszone}"
-#}
-
 resource "google_dns_managed_zone" "dnszone" {
-  name = "private-zone"
+  name = "$var.dnszone"
   dns_name = "${var.domain}."
   description = "Example private DNS zone"
   labels = {

@@ -3,7 +3,7 @@ resource "google_sql_database_instance" "tfe-psql-db" {
   database_version = "POSTGRES_9_6"
   region = "us-central1"
   depends_on = [
-    "google_service_networking_connection.ptfe_vpc"
+    "module.firewall.google_service_networking_connection.ptfe_vpc"
   ]
   settings {
     # Second-generation instance tiers are based on the machine
@@ -11,7 +11,7 @@ resource "google_sql_database_instance" "tfe-psql-db" {
     tier = "db-f1-micro"
     ip_configuration {
       ipv4_enabled = false
-      private_network = "google_compute_network.ptfe_vpc.self_link"
+      private_network = "module.firewall.google_compute_network.ptfe_vpc.self_link"
     }
   }
 }
